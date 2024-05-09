@@ -28,17 +28,30 @@ if (userPasswordLength < 8 || userPasswordLength > 128 || isNaN(userPasswordLeng
 }
 var useUppercase = window.confirm("Do you want to include uppercase letters in your password?") 
   if (useUppercase) {
-    randomPasswordArr.push(uppercaseArr);
+    randomPasswordArr.push(...uppercaseArr);
 }
 var useLowercase = window.confirm("Do you want to include lowercase letters in your password?")
 if (useLowercase) {
-  randomPasswordArr.push(lowercaseArr);
+  randomPasswordArr.push(...lowercaseArr);
 }
 var useNumbers = window.confirm("Do you want to include numbers in your password?")
 if (useNumbers) {
-  randomPasswordArr.push(numbersArr);
+  randomPasswordArr.push(...numbersArr);
 }
+var useSymbols = window.confirm("Do you want to include symbols in your password?")
+if (useSymbols) {
+  randomPasswordArr.push(...symbolsArr);
+  
 }
+var result = '';
+for (i = 0; i < userPasswordLength; i++) {
+  let generateRandomItems = randomPasswordArr[Math.floor(Math.random() * randomPasswordArr.length)];
+
+}
+
+  
+}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
