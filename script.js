@@ -9,6 +9,8 @@ var numbersArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 var symbolsArr = ["!", "@", "#", "$", "%", "^", "&", "*", ",", ".", "?"];
 
+var randomPasswordArr = [];
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -16,6 +18,26 @@ function writePassword() {
 
   passwordText.value = password;
 
+}
+
+function generatePassword() {
+var userPasswordLength = window.prompt("Please enter a password length between 8 and 128 characters")
+if (userPasswordLength < 8 || userPasswordLength > 128 || isNaN(userPasswordLength)) {
+  window.alert("Please click ok to try again.")
+  writePassword();
+}
+var useUppercase = window.confirm("Do you want to include uppercase letters in your password?") 
+  if (useUppercase) {
+    randomPasswordArr.push(uppercaseArr);
+}
+var useLowercase = window.confirm("Do you want to include lowercase letters in your password?")
+if (useLowercase) {
+  randomPasswordArr.push(lowercaseArr);
+}
+var useNumbers = window.confirm("Do you want to include numbers in your password?")
+if (useNumbers) {
+  randomPasswordArr.push(numbersArr);
+}
 }
 
 // Add event listener to generate button
