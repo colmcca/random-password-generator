@@ -11,6 +11,8 @@ var symbolsArr = ["!", "@", "#", "$", "%", "^", "&", "*", ",", ".", "?"];
 
 var randomPasswordArr = [];
 
+var result = [];
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -43,13 +45,13 @@ if (useSymbols) {
   randomPasswordArr.push(...symbolsArr);
   
 }
-var result = '';
-for (i = 0; i < userPasswordLength; i++) {
-  let generateRandomItems = randomPasswordArr[Math.floor(Math.random() * randomPasswordArr.length)];
 
+for (i = 0; i < userPasswordLength; i++) {
+  var generateRandomItems = randomPasswordArr[Math.floor(Math.random() * randomPasswordArr.length)];
+  result.push(generateRandomItems);
 }
 
-  
+  return result.join(""); 
 }
 
 
